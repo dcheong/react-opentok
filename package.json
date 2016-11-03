@@ -2,7 +2,7 @@
   "name": "react-opentok",
   "version": "0.0.1",
   "description": "React component wrapper for opentok.js",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "test": "test"
   },
@@ -12,5 +12,11 @@
     "react"
   ],
   "author": "TopPick",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.16.6",
+    "react": "^15.3.2",
+    "react-faux-dom": "^3.0.0",
+    "warning": "^3.0.0"
+  }
 }
