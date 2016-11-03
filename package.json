@@ -1,0 +1,16 @@
+{
+  "name": "react-opentok",
+  "version": "0.0.1",
+  "description": "React component wrapper for opentok.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "opentok",
+    "webrtc",
+    "react"
+  ],
+  "author": "TopPick",
+  "license": "ISC"
+}
