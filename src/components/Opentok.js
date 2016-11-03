@@ -7,6 +7,7 @@ const propTypes = {
   apiKey: PropTypes.number.isRequired,
   sessionId: PropTypes.string.isRequired,
   token: PropTypes.string.isRequired,
+  onArchiveStopped: PropTypes.func,
   width: PropTypes.number,
   height: PropTypes.number,
   videoId: PropTypes.string,
@@ -18,6 +19,17 @@ class Opentok extends Component {
     super(props)
 
     const session = OT.initSession(this.props.apiKey, this.props.sessionId)
+    if (this.props.onArchiveStopped) {
+      session.on('archiveStopped', () => {
+        this.props.onArchiveStopped()
+      }, this)
+    }
+
+    session.on('streamDestroyed', (event) => {
+      if (event.stream.connection.connectionId === session.connection.connectionId) {
+        event.preventDefault()
+      }
+    })
 
     const publisherElement = ReactFauxDOM.createElement('div')
     publisherElement.style.setProperty('margin', '0 auto')
